@@ -4,14 +4,8 @@
 <style>
   body{
       background-color:#313131;
-     /*
-      background-image:url("10-104592_dark-material-design-wallpapers-material-backgrounds.jpg");
-      background-repeat:no-repeat;
-      background-position: right top;
-      background-attachment: fixed;
-      background-size:auto;*/
   }
-  @media only screen and (max-width: 650px) and (orientation: portrait) {
+  @media only screen and (max-height: 650px) and (orientation: portrait) {
     body {
          background-image:url("10-104592_dark-material-design-wallpapers-material-backgrounds.jpg");
          background-repeat:no-repeat;
@@ -20,8 +14,20 @@
          background-size:auto
     }
   }
+  .Ayush_img{
+     border-radius:20px;
+     display: block;
+     float:center;
+     margin-left: auto;
+     margin-right: auto;
+     width: 50%;
+  }
+  .Ayush_img:hover{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
   .name{
      text-align:center;
+     font-size:10px;
   }
   h1{
     border-radius:10%;
@@ -38,8 +44,12 @@
 </style>
 </head>
 <body>
-  <h1 align="center"><img src="FaceApp_1563514076725.jpg" width="150px" height="150px" ></img></h1>   
-  <font class="name" align="center" size="10" color="white"><b>Ayush Choudhary</b></font>
+  <div class="Ayush_img">
+      <img src="FaceApp_1563514076725.jpg" alt="Ayush Choudhary">
+  </div> 
+  <!--<h1 align="center"><img src="FaceApp_1563514076725.jpg" width="150px" height="150px" ></img></h1>  -->
+  <p class="name"><b>Ayush Choudhary</b></p>
+  <!--<font class="name" align="center" size="10" color="white"><b>Ayush Choudhary</b></font> -->
   <h3>Hey! I am a Computer Science and Engineering Student</h3>
   <p class="intro">
     Let's get started... <br>
