@@ -9,14 +9,20 @@
       background-color:#181818;
   }
   @media only screen and (max-height: 1000px) and (orientation: portrait) {
+      .desc , .name {
+          width:100%;
+      }  
     body {
-         background-image:url("10-104592_dark-material-design-wallpapers-material-backgrounds.jpg");
+         /*background-image:url("10-104592_dark-material-design-wallpapers-material-backgrounds.jpg");*/
+         background-color:#2762fe;
          background-repeat:repeat;
          background-position: left top;
          background-attachment: fixed;
          background-size:800px 100%;
-    } 
+    }
+    
   }
+         
     
   .w3-image{
       float:center;
@@ -26,6 +32,7 @@
       margin-right: auto;
       border-radius:20px 20px 5px 5px;
       background-color:#101010;
+      box-shadow: 0px 12px 12px 0 rgba(0, 0, 0, 0.2), 5px 10px 20px 0 rgba(0, 0, 0, 0.19);
     }    
   .w3-image img{
      width:170px;
@@ -84,8 +91,27 @@
         padding:10px 10px 10px 10px;
         border-radius:20px;
         margin-left:12%;
-    }    
-      
+        box-shadow:5px 4px 20px 1px #000000;
+    }  
+    
+    .footer{
+        color:white;
+        margin-top:30px;
+        padding-top:10px;
+        padding-bottom: 20px;
+        background:#000000;
+        text-align:center;
+    }
+  .footer .fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 30px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    border-radius: 50%;
+}  
+     
 </style>
 </head>
 <body>
@@ -111,11 +137,24 @@
     </p>
   </div>    
     
-<div class="youtube">
+
+
+<div class="footer">
+<!--    <div class="youtube">
   <p>Visit my channel on You tube.</p>
   <iframe width="250" height="130" src="https://youtube.com/embed/4Zl5lGJ9JtQ">
   </iframe>
+</div>-->
+<a href="https://www.facebook.com/profile.php?id=100027885786680" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+<a href="#" class="fa fa-google"></a>
+<a href="https://www.linkedin.com/in/ayush-choudhary-5a0b1b193/" class="fa fa-linkedin"></a>
+<a href="https://www.youtube.com/channel/UClsVYZSJ1f5R7L5PTUEHDfg?view_as=subscriber" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/ayushchoudhary4723/" class="fa fa-instagram"></a>
+<a href="https://github.com/ayushhurdey?tab=repositories" class="fa fa-github"></a>
+  <p>copyright &copy; Ayush Choudhary</p>
 </div>
+    
     
 </body>
 </html>
