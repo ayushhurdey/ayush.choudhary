@@ -19,7 +19,7 @@
 	
 	<script type = "text/javascript">		
 		var x = window.matchMedia("(max-width: 500px)");
-		boxesWidth = "360px";
+		boxesWidth = "100%";  // 360px
 		inputBoxCols = "28";
 		inputBoxRows = "2";
 		postButtonBottom = "25px";
@@ -64,9 +64,10 @@
 		
 		function createButton(text){  
 			var button = document.createElement('BUTTON'); 
-			button.style.position = "absolute";
-			button.style.right = "15px";
-			button.style.bottom = postButtonBottom;
+			button.style.position = "relative";
+			button.style.left =  "" + document.getElementById('container').clientWidth - 115 + "px" ;  //370px
+			//button.style.bottom = postButtonBottom;
+			button.style.top = "6px";
 			button.style.border = "none";
 			button.style.backgroundColor = "#202020";           // #4CAF50 previous color --> green
 			button.style.color = "white";
@@ -163,7 +164,7 @@
 			inputBox.style.top = "6px";
 			inputBox.setAttribute("type", "text");
 		    inputBox.setAttribute("placeholder", "Write your message.");
-			inputBox.style.width = inputBoxWidth;
+			inputBox.style.width = "" + document.getElementById('container').clientWidth - 120 + "px";
 		    inputBox.style.height = "15px";
 			inputBox.style.padding = "19px 20px";
 			inputBox.style.backgroundColor = "#33383B";
