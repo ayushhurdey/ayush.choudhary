@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyInsta | HOME</title>
+    <link rel="stylesheet" href="instaStyle.css">
+	<style></style>
+</head>
+<body>
+	<nav>
+		<button id = "buttonId" onclick = "addPost()">Generate New Post</button>
+    </nav>
+    <main>
+		<div id = "container">
+			<div></div>
+		</div>
+    </main>
+	
+	<script type = "text/javascript">		
+		var x = window.matchMedia("(max-width: 500px)");
+		boxesWidth = "360px";
+		inputBoxCols = "28";
+		inputBoxRows = "2";
+		postButtonBottom = "25px";
+		postBoxHeight = "610px";
+		inputBoxWidth = "235px";
+		messageDivHeight = "160px";
+ 		if(!x.matches){
+				boxesWidth = "484px";
+				inputBoxCols = "43";
+				inputBoxRows = "1";
+				postButtonBottom = "26px";
+				inputBoxWidth = "360px";
+				postBoxHeight = "600px";
+				messageDivHeight = "150px";
+		}
+		
+		function createCircle(){
+			var div = document.createElement("div");
+			div.style.position = "absolute";
+			div.style.top = "5px";
+			div.style.height = "25px";
+			div.style.width = "25px";
+			div.style.backgroundColor = "black"; 	
+			div.style.marginRight = "10px";
+			div.style.marginLeft = "10px";
+			div.style.marginTop = "10px";
+			div.style.borderRadius = "50px";
+			return div;
+		}
+		
+		function makeTextDiv(text){
+			var textNode = document.createTextNode(text);
+			var div = document.createElement("div");
+			div.style.position = "absolute";
+			div.style.top = "18px";
+			div.style.left = "45px";
+			div.style.width = "100px";
+			div.style.height = "40px";
+			div.appendChild(textNode);
+			return div;
+		}
+		
+		function createButton(text){  
+			var button = document.createElement('BUTTON'); 
+			button.style.position = "absolute";
+			button.style.right = "15px";
+			button.style.bottom = postButtonBottom;
+			button.style.border = "none";
+			button.style.backgroundColor = "#202020";           // #4CAF50 previous color --> green
+			button.style.color = "white";
+			button.style.padding = "9px 28px";
+			button.style.textAlign = "center";
+			button.style.textDecoration = "none";
+			button.style.borderRadius = "60px";
+			button.style.outline = "none";
+			button.style.fontSize = "16px";
+			button.style.boxShadow = "2px 1px 15px 2px black";
+			button.style.transitionDuration = "0.4s";
+			var textNode = document.createTextNode(text); 
+			button.appendChild(textNode);
+			return button; 
+		}
+		
+		function generateMessageDiv(message){
+			var textNode = document.createTextNode(message);
+			var div = document.createElement("div");
+			div.style.position = "relative";
+			var postArea = generatePostBox();
+			var button =  createButton("Post");
+			var brk = document.createElement("br");
+			div.style.width = boxesWidth;
+			div.style.height = messageDivHeight;
+			div.style.paddingLeft = "12px";
+			div.style.paddingTop = "15px";
+			div.style.paddingRight = "12px";
+ 			div.style.backgroundColor = "#1E2428";
+			div.appendChild(textNode);
+			div.appendChild(brk);
+			div.appendChild(postArea);
+			div.appendChild(button);
+			return div;
+		}
+		
+		function makeDots(){
+			var text = document.createTextNode("...");
+			var div = document.createElement("div");
+			div.style.position = "absolute";
+			div.style.top = "10px";
+			div.style.width = "20px";
+			div.style.height = "20px";
+			div.style.right = "15px";
+			div.appendChild(text);
+			return div;
+		}
+		
+		function generateUserDetails(username){
+			var text = makeTextDiv(username);
+			var div = document.createElement("div");
+			var circle = createCircle();
+			var dots = makeDots();
+			div.style.position = "relative";
+			div.style.height = "50px";
+			div.style.width = boxesWidth;
+			div.style.backgroundColor = "#505050";
+			div.appendChild(circle);
+			div.appendChild(text);	
+			div.appendChild(dots);
+			return div;
+		}
+		
+		function generateImageDiv(imgUrl){
+			var div = document.createElement("div");
+			div.style.position = "relative";
+			var img = document.createElement('img'); 
+            img.src =  imgUrl;
+			img.style.width = boxesWidth;
+			img.style.height= "400px";
+            div.appendChild(img); 
+			div.style.color = "white";
+			div.style.boxShadow =  "0px 10px 500px 0px white";
+			div.style.width = boxesWidth;
+			div.style.height = "400px";
+			return div;
+		}
+		
+		function generatePostBox(){
+			var div = document.createElement("div");
+			div.style.position = "relative";
+			/*
+			var inputBox = document.createElement("textarea");
+			inputBox.style.position = "absolute";
+			inputBox.style.top = "6px";
+			inputBox.setAttribute("cols", inputBoxCols);
+			inputBox.setAttribute("rows", inputBoxRows);
+			inputBox.setAttribute("placeholder", "Post Here.");
+			//div.style.display = "inline-block";
+			document.body.appendChild(inputBox);
+			*/
+			var inputBox = document.createElement("input");
+			inputBox.style.position = "absolute";
+			inputBox.style.top = "6px";
+			inputBox.setAttribute("type", "text");
+		    inputBox.setAttribute("placeholder", "Write your message.");
+			inputBox.style.width = inputBoxWidth;
+		    inputBox.style.height = "15px";
+			inputBox.style.padding = "19px 20px";
+			inputBox.style.backgroundColor = "#33383B";
+			inputBox.style.color = "white";
+			inputBox.style.borderRadius = "60px";
+			inputBox.style.outline = "none";
+			inputBox.style.fontSize = "16px";
+			inputBox.style.border = "0px";
+			div.appendChild(inputBox);
+			return div;
+		}
+		
+		function generatePost(imgUrl,username,message){
+			var div = document.createElement("div");
+			var userNode = generateUserDetails(username);
+			var imageDiv = generateImageDiv(imgUrl);
+			var messageNode = generateMessageDiv(message);
+			div.style.position = "relative";
+			div.style.color = "white";
+			div.style.width = boxesWidth;
+			div.style.height = postBoxHeight;
+			div.style.marginBottom= "20px";
+			div.style.backgroundColor = "#202020";
+			div.appendChild(userNode);
+			div.appendChild(imageDiv);
+			div.appendChild(messageNode);
+			var container = document.getElementById("container");
+			container.insertBefore(div,container.childNodes[0]);
+		}
+		
+		function addPost(){
+			/*var images = ["pexels-james-wheeler-1519088.jpg", "pexels-pixabay-326055.jpg","pexels-mohamed-almari-1485894.jpg","pexels-valiphotos-589840.jpg", "pexels-bess-hamiti-36764.jpg"];
+			*/
+			var images = ["10-10.jpg","1767744.jpg","google-png-hd-google-wallpaper-desktop-background-3840.png","juan-gomez-6AyyafVMJzQ-unsplash.jpg","norway-3840x2160-5k-4k-wallpaper-bridge-sea-lake-water-blue-sky-920.jpg","ocean-5120x2880-5k-4k-wallpaper-8k-sea-nature-underwater-water-su","ocean-5120x2880-5k-4k-wallpaper-8k-sea-nature-underwater-water-sun-386.jpg","RE4qNzD.jpeg","RE4r3D8.jpeg","RE4qXZB.jpeg","RE4wB79.jpeg","RE4wqHU.jpeg","RE4wyUf.jpeg","RE5jbdd.jpeg","th (1).jpeg","underwater-3840x2160-whale-4k-18612.jpg","vivo-nex-3-3840x2160-colorful-android-10-abstract-4k-22416.jpg","th.jpeg","RE4wwtY.jpeg"]
+			var users = ["ayush", "asmit", "john", "ankit", "abhay", "arun", "rohit", "vinay", "abhinav", "abhishek","ankur"];
+			const indexImages = Math.floor(Math.random() * images.length);
+			const indexUsers = Math.floor(Math.random() * users.length);
+		    //var imgUrl = "images/" + images[indexImages];
+			const imgs = [800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000]
+			var imgUrl = "https://picsum.photos/" + imgs[Math.floor(Math.random() * imgs.length)];
+			console.log(imgUrl);
+			var username = users[indexUsers];
+			var message = "Some message over here.\n The key to creating a responsive. You can also use this technique with most other iframe-based embeds, such as slideshows.";
+			generatePost(imgUrl,username,message);
+		}
+	</script>
+</body>
+</html>
