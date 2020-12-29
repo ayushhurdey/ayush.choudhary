@@ -27,13 +27,13 @@
 		inputBoxWidth = "235px";
 		messageDivHeight = "160px";
  		if(!x.matches){
-				boxesWidth = "484px";
-				inputBoxCols = "43";
-				inputBoxRows = "1";
-				postButtonBottom = "26px";
-				inputBoxWidth = "360px";
-				postBoxHeight = "600px";
-				messageDivHeight = "150px";
+			boxesWidth = "484px";
+			inputBoxCols = "43";
+			inputBoxRows = "1";
+			postButtonBottom = "26px";
+			inputBoxWidth = "360px";
+			postBoxHeight = "600px";
+			messageDivHeight = "150px";
 		}
 		
 		function createCircle(){
@@ -85,7 +85,14 @@
 		}
 		
 		function generateMessageDiv(message){
-			var textNode = document.createTextNode(message);
+			var textNode = document.createElement("p");
+			var text = document.createTextNode(message);
+			textNode.style.fontSize = "14px";
+			textNode.style.height = "60px";
+			textNode.style.overflow = "scroll";
+			textNode.style.margin = "0px";
+			textNode.appendChild(text);
+			//var textNode = document.createTextNode(message);
 			var div = document.createElement("div");
 			div.style.position = "relative";
 			var postArea = generatePostBox();
@@ -207,7 +214,7 @@
 			var imgUrl = "https://picsum.photos/" + imgs[Math.floor(Math.random() * imgs.length)];
 			console.log(imgUrl);
 			var username = users[indexUsers];
-			var message = "Some message over here.\n The key to creating a responsive. You can also use this technique with most other iframe-based embeds, such as slideshows.";
+			var message = "Nature is an important and integral part of mankind. It is one of the greatest blessings for human life; however, nowadays humans fail to recognize it as one. Nature has been an inspiration for numerous poets, writers, artists and more of yesteryears. This remarkable creation inspired them to write poems and stories in the glory of it. They truly valued nature which reflects in their works even today. ";
 			generatePost(imgUrl,username,message);
 		}
 	</script>
