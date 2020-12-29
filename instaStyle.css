@@ -39,7 +39,6 @@ main {
 
 @media screen and (max-width: 500px) {
   #container{
-	  width: 360px;
+	  width: 100%;
   }
 }
-
