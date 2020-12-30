@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyInsta | HOME</title>
+    <title>MyInsta</title>
+	<link rel="icon" href="images/insta.jpg" type="image/x-icon">
     <link rel="stylesheet" href="instaStyle.css">
 	<style></style>
 </head>
@@ -90,6 +91,7 @@
 			textNode.style.fontSize = "14px";
 			textNode.style.height = "60px";
 			textNode.style.overflow = "scroll";
+			textNode.style.overflowX = "hidden";
 			textNode.style.margin = "0px";
 			textNode.appendChild(text);
 			//var textNode = document.createTextNode(message);
@@ -142,10 +144,10 @@
 			var div = document.createElement("div");
 			div.style.position = "relative";
 			var img = document.createElement('img'); 
-            img.src =  imgUrl;
+            		img.src =  imgUrl;
 			img.style.width = boxesWidth;
 			img.style.height= "400px";
-            div.appendChild(img); 
+                        div.appendChild(img); 
 			div.style.color = "white";
 			div.style.boxShadow =  "0px 10px 500px 0px white";
 			div.style.width = boxesWidth;
@@ -170,9 +172,9 @@
 			inputBox.style.position = "absolute";
 			inputBox.style.top = "6px";
 			inputBox.setAttribute("type", "text");
-		    inputBox.setAttribute("placeholder", "Write your message.");
+		        inputBox.setAttribute("placeholder", "Write your message.");
 			inputBox.style.width = "" + document.getElementById('container').clientWidth - 120 + "px";
-		    inputBox.style.height = "15px";
+		        inputBox.style.height = "15px";
 			inputBox.style.padding = "19px 20px";
 			inputBox.style.backgroundColor = "#33383B";
 			inputBox.style.color = "white";
